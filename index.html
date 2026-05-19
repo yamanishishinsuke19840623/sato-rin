@@ -1766,10 +1766,28 @@ function drawBadge() {
 }
 function downloadBadge() {
   var c = document.getElementById('badge-canvas');
-  var a = document.createElement('a');
-  a.download = 'sato-rin-sponsor-badge.png';
-  a.href = c.toDataURL('image/png');
-  a.click();
+  var dataUrl = c.toDataURL('image/png');
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    var existing = document.getElementById('badge-save-img');
+    if (!existing) {
+      var img = document.createElement('img');
+      img.id = 'badge-save-img';
+      img.src = dataUrl;
+      img.style.cssText = 'width:100%;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.15);display:block;margin-bottom:12px;';
+      c.parentNode.insertBefore(img, c);
+      c.style.display = 'none';
+    }
+    var btn = document.querySelector('.modal-dl-btn');
+    btn.innerHTML = '👆 画像を長押しして保存';
+    btn.style.background = 'linear-gradient(135deg,#06c755,#04a347)';
+    btn.onclick = null;
+  } else {
+    var a = document.createElement('a');
+    a.download = 'sato-rin-sponsor-badge.png';
+    a.href = dataUrl;
+    a.click();
+  }
 }
 
 /* ============================================================
