@@ -173,7 +173,7 @@
       display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 80px 24px;
       position: relative; overflow: hidden;
-      background: linear-gradient(155deg, #1E0808 0%, #6B1020 50%, #9B2030 100%);
+      background: linear-gradient(155deg,rgba(30,8,8,.68) 0%,rgba(107,16,32,.72) 50%,rgba(155,32,48,.68) 100%), url('./photos/hero.jpg') center 25%/cover no-repeat;
     }
     #hero::before {
       content: ''; position: absolute; top: -180px; right: -180px;
@@ -371,7 +371,7 @@
     /* ==============================
        BENEFITS
     ============================== */
-    #benefits { background: linear-gradient(155deg,#2A0808 0%,#6B1520 50%,#8B2535 100%); color: #fff; }
+    #benefits { background: linear-gradient(155deg,rgba(42,8,8,.84) 0%,rgba(107,21,32,.88) 50%,rgba(139,37,53,.84) 100%), url('./photos/practice.jpg') center/cover no-repeat; color: #fff; }
     #benefits .section-label { color: var(--rose-light); }
     #benefits .section-title { color: #fff; }
     .benefits-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
@@ -396,7 +396,10 @@
     /* ==============================
        PLANS
     ============================== */
-    #plans { background: var(--cream); }
+    #plans { background: linear-gradient(rgba(30,8,8,.82),rgba(107,16,32,.88)), url('./photos/court.jpg') center/cover no-repeat; }
+    #plans .section-label { color: var(--rose-light); }
+    #plans .section-title { color: #fff; }
+    #plans .plans-note { color: rgba(255,255,255,.55); }
     .plans-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; align-items: start; }
     .plan-card {
       background: #fff; border-radius: var(--radius); padding: 44px 28px;
@@ -509,7 +512,7 @@
     /* ==============================
        CONTACT
     ============================== */
-    #contact { background: linear-gradient(160deg,#2A0808 0%,#7B1525 100%); }
+    #contact { background: linear-gradient(160deg,rgba(42,8,8,.86) 0%,rgba(123,21,37,.90) 100%), url('./photos/trophy.jpg') center/cover no-repeat; }
     #contact .section-label { color:var(--rose-light); }
     #contact .section-title { color:#fff; }
     .form-wrap {
