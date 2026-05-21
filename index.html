@@ -374,7 +374,8 @@
     #benefits { background: linear-gradient(155deg,#2A0808 0%,#6B1520 50%,#8B2535 100%); color: #fff; }
     #benefits .section-label { color: var(--rose-light); }
     #benefits .section-title { color: #fff; }
-    .benefits-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
+    @media(max-width:600px){ .benefits-grid { grid-template-columns: 1fr; } }
     .benefit-item {
       text-align: center; padding: 40px 24px; border-radius: var(--radius);
       background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
@@ -725,12 +726,15 @@
       padding:12px 24px; border-radius:50px; font-size:.85rem; font-weight:700;
       cursor:pointer; border:none; transition:transform .2s, box-shadow .2s; letter-spacing:.04em;
     }
-    .share-btn:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,.2); }
-    .share-x    { background:#000; color:#fff; }
-    .share-line { background:#06c755; color:#fff; }
-    .share-fb   { background:#1877f2; color:#fff; }
-    .share-qr   { background:var(--rose); color:#fff; }
-    .share-badge-btn { background:var(--gold); color:#fff; }
+    .share-btn:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,.25); }
+    .share-x,.share-line,.share-fb,.share-qr,.share-badge-btn,
+    .share-ig,.share-wa,.share-threads {
+      background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.28);
+    }
+    .share-x:hover,.share-line:hover,.share-fb:hover,.share-qr:hover,.share-badge-btn:hover,
+    .share-ig:hover,.share-wa:hover,.share-threads:hover {
+      background:rgba(255,255,255,.22); border-color:rgba(255,255,255,.5);
+    }
 
     /* ==============================
        📱 QR / バッジ モーダル
@@ -1047,22 +1051,58 @@
 <section id="benefits">
   <div class="container">
     <span class="section-label fade-up">Sponsor Benefits</span>
-    <h2 class="section-title fade-up">スポンサーになると</h2>
+    <h2 class="section-title fade-up">スポンサーになると<br><small style="font-size:.55em;opacity:.7">何が得られるか</small></h2>
     <div class="benefits-grid">
       <div class="benefit-item fade-up" style="transition-delay:.0s">
         <div class="benefit-icon">👕</div>
-        <div class="benefit-title">ユニフォームに<br>ロゴを掲載</div>
-        <div class="benefit-desc">全国の大会で御社ロゴが露出。<br>試合のたびにブランドが広がります。</div>
+        <div class="benefit-title">ユニフォームに御社ロゴ</div>
+        <div class="benefit-desc">全国大会・地方大会で試合ごとに御社ブランドが露出。1協賛で年間を通じてリアルな視覚露出が続きます。</div>
       </div>
       <div class="benefit-item fade-up" style="transition-delay:.12s">
         <div class="benefit-icon">📱</div>
-        <div class="benefit-title">SNSで<br>スポンサー紹介</div>
-        <div class="benefit-desc">試合報告の Instagram 投稿で御社をご紹介。<br>地元ファンへの認知向上に。</div>
+        <div class="benefit-title">SNS で継続的に紹介</div>
+        <div class="benefit-desc">試合報告・遠征レポートのInstagram投稿でご紹介。地元ファン・保護者・テニスコミュニティへの認知向上に直結します。</div>
       </div>
       <div class="benefit-item fade-up" style="transition-delay:.24s">
-        <div class="benefit-icon">📩</div>
-        <div class="benefit-title">定期報告で<br>成長を一緒に</div>
-        <div class="benefit-desc">試合結果・遠征の様子を定期報告。<br>応援している実感を持ち続けられます。</div>
+        <div class="benefit-icon">🎬</div>
+        <div class="benefit-title">成長ストーリーに乗るブランド</div>
+        <div class="benefit-desc">「若い挑戦者を支えた企業」として地域の記憶に刻まれます。感動のストーリーはスキップされず、購買意欲へ直結します。</div>
+      </div>
+      <div class="benefit-item fade-up" style="transition-delay:.36s">
+        <div class="benefit-icon">📊</div>
+        <div class="benefit-title">定期レポートで透明性</div>
+        <div class="benefit-desc">試合結果・遠征の様子を定期報告。スポンサー料がどう活きているか、成長を一緒に実感できます。</div>
+      </div>
+    </div>
+
+    <!-- 普通の広告 vs 凛ちゃん協賛 -->
+    <div style="margin-top:48px" class="fade-up">
+      <div style="text-align:center;margin-bottom:28px">
+        <div style="font-size:11px;letter-spacing:.15em;color:var(--rose-light);margin-bottom:8px">ROI COMPARISON</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;color:#fff">「普通の広告」と比べると——</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:680px;margin:0 auto">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:24px">
+          <div style="font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-bottom:12px">一般的なSNS広告・チラシ</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:12px;color:rgba(255,255,255,.6)">
+            <div>掲載期間: <strong style="color:rgba(255,255,255,.85)">数日〜数週間</strong></div>
+            <div>ストーリー性: <strong style="color:rgba(255,255,255,.85)">なし</strong></div>
+            <div>記憶残存: <strong style="color:rgba(255,255,255,.85)">低い（スキップされる）</strong></div>
+            <div>地域コミュニティ: <strong style="color:rgba(255,255,255,.85)">薄い</strong></div>
+            <div>継続効果: <strong style="color:rgba(255,255,255,.85)">なし</strong></div>
+          </div>
+        </div>
+        <div style="background:linear-gradient(160deg,rgba(228,37,53,.15),rgba(201,147,58,.08));border:2px solid var(--rose-light);border-radius:var(--radius);padding:24px;position:relative">
+          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:#fff;font-size:10px;font-weight:900;padding:4px 14px;border-radius:10px;white-space:nowrap">凛ちゃん協賛</div>
+          <div style="font-size:10px;letter-spacing:.1em;color:var(--rose-light);margin-bottom:12px;margin-top:4px">佐藤 凜 スポンサー</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:12px">
+            <div style="color:rgba(255,255,255,.6)">掲載期間: <strong style="color:var(--gold-light)">年間・継続的</strong></div>
+            <div style="color:rgba(255,255,255,.6)">ストーリー性: <strong style="color:var(--gold-light)">感動の成長物語に同行</strong></div>
+            <div style="color:rgba(255,255,255,.6)">記憶残存: <strong style="color:var(--gold-light)">高い（ファンが見続ける）</strong></div>
+            <div style="color:rgba(255,255,255,.6)">地域コミュニティ: <strong style="color:var(--gold-light)">深い（地元密着）</strong></div>
+            <div style="color:rgba(255,255,255,.6)">継続効果: <strong style="color:var(--gold-light)">試合のたびに積み上がる</strong></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1133,6 +1173,52 @@
         <a href="#contact" class="plan-btn">このプランで申し込む</a>
       </div>
     </div>
+    <!-- 特典比較表 -->
+    <div style="margin-top:40px;overflow-x:auto" class="fade-up">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:520px">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border)">
+            <th style="padding:14px 10px;text-align:left;color:var(--muted);font-size:11px;letter-spacing:.08em;font-weight:700">特典</th>
+            <th style="padding:14px 10px;text-align:center;color:var(--muted);font-size:12px;font-weight:700">Light<br><span style="color:var(--rose);font-family:'Playfair Display',serif;font-size:14px">5万円</span></th>
+            <th style="padding:14px 10px;text-align:center;background:rgba(228,37,53,.05);border-top:2px solid var(--rose-light);border-left:1px solid var(--border);border-right:1px solid var(--border);color:var(--rose);font-size:12px;font-weight:700">Standard ✦<br><span style="font-family:'Playfair Display',serif;font-size:14px">10万円</span></th>
+            <th style="padding:14px 10px;text-align:center;color:var(--muted);font-size:12px;font-weight:700">Premium<br><span style="color:var(--rose);font-family:'Playfair Display',serif;font-size:14px">20万円</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:12px 10px;color:var(--text);font-size:13px">SNS でスポンサー紹介</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--muted);font-size:12px">年 2〜3 回</td>
+            <td style="padding:12px 10px;text-align:center;background:rgba(228,37,53,.04);color:var(--rose-deep);font-size:12px;font-weight:700">年 4〜6 回</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--muted);font-size:12px">試合ごと</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:12px 10px;color:var(--text);font-size:13px">試合結果の定期報告</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--rose);font-weight:700">●</td>
+            <td style="padding:12px 10px;text-align:center;background:rgba(228,37,53,.04);color:var(--rose);font-weight:700">●</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--rose);font-weight:700">●</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:12px 10px;color:var(--text);font-size:13px">スポンサー一覧への掲載</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--rose);font-weight:700">●</td>
+            <td style="padding:12px 10px;text-align:center;background:rgba(228,37,53,.04);color:var(--rose);font-weight:700">●</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--rose);font-weight:700">●</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:12px 10px;color:var(--text);font-size:13px">ユニフォームへのロゴ掲載</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--border);font-weight:700">—</td>
+            <td style="padding:12px 10px;text-align:center;background:rgba(228,37,53,.04);color:var(--muted);font-size:12px">● （小）</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--rose-deep);font-size:12px;font-weight:700">★ 大・目立つ位置</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 10px;color:var(--text);font-size:13px">個別ご報告（年 1 回）</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--border);font-weight:700">—</td>
+            <td style="padding:12px 10px;text-align:center;background:rgba(228,37,53,.04);color:var(--border);font-weight:700">—</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--rose);font-weight:700">●</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <p class="plans-note fade-up">※ プランや返礼内容はご相談に応じます。まずはお気軽にお問い合わせください。</p>
   </div>
 </section>
@@ -1254,10 +1340,13 @@
     <div class="share-section fade-up">
       <p class="share-title">このページをシェアする ✦</p>
       <div class="share-btns">
-        <button class="share-btn share-x"    onclick="shareX()">𝕏 でシェア</button>
-        <button class="share-btn share-line" onclick="shareLine()">LINE でシェア</button>
-        <button class="share-btn share-fb"   onclick="shareFb()">Facebook</button>
-        <button class="share-btn share-qr"   onclick="openQr()">📱 QRコード</button>
+        <button class="share-btn share-x"       onclick="shareX()">𝕏 でシェア</button>
+        <button class="share-btn share-line"    onclick="shareLine()">LINE でシェア</button>
+        <button class="share-btn share-fb"      onclick="shareFb()">Facebook</button>
+        <button class="share-btn share-ig"      onclick="shareIg()">📸 Instagram</button>
+        <button class="share-btn share-wa"      onclick="shareWa()">💬 WhatsApp</button>
+        <button class="share-btn share-threads" onclick="shareThreads()">🧵 Threads</button>
+        <button class="share-btn share-qr"      onclick="openQr()">📱 QRコード</button>
         <button class="share-btn share-badge-btn" onclick="openBadge()">🏅 バッジを作る</button>
       </div>
     </div>
@@ -1708,9 +1797,12 @@ function toggleFaq(btn) {
 ============================================================ */
 var PAGE_URL   = encodeURIComponent(location.href);
 var PAGE_TITLE = encodeURIComponent('佐藤凜 スポンサー募集｜山口から世界を目指すジュニアテニスプレーヤー');
-function shareX()    { window.open('https://twitter.com/intent/tweet?text='+PAGE_TITLE+'&url='+PAGE_URL,'_blank'); }
-function shareLine() { window.open('https://social-plugins.line.me/lineit/share?url='+PAGE_URL,'_blank'); }
-function shareFb()   { window.open('https://www.facebook.com/sharer/sharer.php?u='+PAGE_URL,'_blank'); }
+function shareX()       { window.open('https://twitter.com/intent/tweet?text='+PAGE_TITLE+'&url='+PAGE_URL,'_blank'); }
+function shareLine()    { window.open('https://social-plugins.line.me/lineit/share?url='+PAGE_URL,'_blank'); }
+function shareFb()      { window.open('https://www.facebook.com/sharer/sharer.php?u='+PAGE_URL,'_blank'); }
+function shareIg()      { window.open('https://www.instagram.com/?url='+PAGE_URL,'_blank'); }
+function shareWa()      { window.open('https://api.whatsapp.com/send?text='+PAGE_TITLE+'%20'+PAGE_URL,'_blank'); }
+function shareThreads() { window.open('https://www.threads.net/intent/post?text='+PAGE_TITLE+'%20'+PAGE_URL,'_blank'); }
 
 /* ============================================================
    📱 ⑬ QRコードモーダル
